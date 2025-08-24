@@ -37,7 +37,7 @@ const Right = () => {
       try{
 
       
-        let response = await axios.post('http://localhost:8000/text',{Text:text,user_query:userInput,api_key:apiKey,qdrant_url:qdrnatUrl,qdrant_api_key:qdrnatApiKey})
+        let response = await axios.post('https://embedai-nctq.onrender.com/text',{Text:text,user_query:userInput,api_key:apiKey,qdrant_url:qdrnatUrl,qdrant_api_key:qdrnatApiKey})
 
         const aiMsg = { from: 'ai', text: response.data.response};
         setMessages((prev) => [...prev,aiMsg])
@@ -49,7 +49,7 @@ const Right = () => {
       
     }
     else if(activeSource == 'website'){
-      let response = await axios.post('http://localhost:8000/website',{Text:website,user_query:userInput,api_key:apiKey,qdrant_url:qdrnatUrl,qdrant_api_key:qdrnatApiKey})
+      let response = await axios.post('https://embedai-nctq.onrender.com/website',{Text:website,user_query:userInput,api_key:apiKey,qdrant_url:qdrnatUrl,qdrant_api_key:qdrnatApiKey})
 
       const aiMsg = { from: 'ai', text: response.data.response};
       setMessages((prev) => [...prev,aiMsg])
@@ -63,7 +63,7 @@ const Right = () => {
       formData.append("qdrant_url", qdrnatUrl);
       formData.append("qdrant_api_key", qdrnatApiKey);
 
-      let response = await axios.post('http://localhost:8000/pdf',formData)
+      let response = await axios.post('https://embedai-nctq.onrender.com/pdf',formData)
       console.log('response',response);
       
       const aiMsg = { from: 'ai', text: response.data.response};
