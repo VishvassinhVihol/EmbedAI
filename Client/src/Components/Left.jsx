@@ -26,7 +26,7 @@ const Left = () => {
 
   const handlesave = async () => {
     try {
-      const response = await axios.post('http://localhost:8000/validate-key', {
+      const response = await axios.post('https://embedai-nctq.onrender.com/validate-key', {
         apiKey: apiKeyVal
       });
       if (response.data.valid) {
@@ -45,7 +45,7 @@ const Left = () => {
 
   const handleQdrantSubmission = async () => {
     try {
-      const response = await axios.post('http://localhost:8000/validate-qdrant',{url:qdrnatUrlVal,apikey: qdrnatApiKey})
+      const response = await axios.post('https://embedai-nctq.onrender.com/validate-qdrant',{url:qdrnatUrlVal,apikey: qdrnatApiKey})
 
       if(response.data.valid){
         toast.success('Qdrant Credentials Are Valid')
